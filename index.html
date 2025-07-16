@@ -3,7 +3,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>arrangement-1</title>
+  <title>arrival-restock-arrangement-1</title>
   <style>
     body {
       font-family: sans-serif;
@@ -42,22 +42,21 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
   <script>
-    var firebaseConfig = {
-      apiKey: "AIzaSyAqPfwz4uQXa_YYS20UPULg2zB2oKU96pY",
-      authDomain: "flowers-with-parts-vol1.firebaseapp.com",
-      databaseURL: "https://flowers-with-parts-vol1-default-rtdb.firebaseio.com",
-      projectId: "flowers-with-parts-vol1",
-      storageBucket: "flowers-with-parts-vol1.firebasestorage.app",
-      messagingSenderId: "582333189703",
-      appId: "1:582333189703:web:06a2e19bb61b959550eb62",
-      measurementId: "G-PX7ZZDG95M"
-    };
+    
+const firebaseConfig = {
+  apiKey: "AIzaSyAEYMyC57oJAKbLMxWsD8SD8cDHIseu4rQ",
+  authDomain: "arrival-restock-arrangement.firebaseapp.com",
+  projectId: "arrival-restock-arrangement",
+  storageBucket: "arrival-restock-arrangement.firebasestorage.app",
+  messagingSenderId: "163370448165",
+  appId: "1:163370448165:web:a1c60cf82a223eeb5116cc"
+};
+
 
     firebase.initializeApp(firebaseConfig);
     var db = firebase.database();
-
     var reactions = ['smile', 'love', 'sparkle', 'like'];
-    var articleID = 'arrangement-1';
+    var articleID = 'arrival-restock-arrangement-1';
 
     function getSavedReaction() {
       return localStorage.getItem(articleID + '_reaction');
@@ -69,7 +68,7 @@
 
     function selectReaction(type) {
       var previous = getSavedReaction();
-      if (previous) return; // すでに投票済みなら無視
+      if (previous) return;
 
       var refNew = db.ref('reactions/' + articleID + '/' + type);
       refNew.transaction(function (current) {
